@@ -1,3 +1,8 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 body {
@@ -5,6 +10,8 @@ body {
   margin: 0;
   overflow: hidden;
   font-family: Roboto, sans-serif;
+ 
+
 }
 
 img {
@@ -25,3 +32,57 @@ input {
   width: 400px;
   margin-bottom: 16px;
 }
+
+/* solution */
+
+body {
+  display: flex;
+  flex-direction: column; 
+}
+
+button {
+  padding: 8px;
+  font-size: 12px;
+}
+
+/* I resorted to margin-top: auto on the content section  along with margin-top: auto on the footer to keep the content section in the center of the page. A leaner fix on the solution page is to apply commented out lines below (justify-content: center and flex: 1. */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: auto;
+  /* justify-content: center;
+  flex: 1; */
+}
+
+a{
+  text-decoration: none;
+  color: #8c8a8a;
+}
+
+/* .header and .footer could have been combined to share common styling: display, padding, but footer still needs it's own class for it's unique background. */
+.header {
+  display: flex;
+  padding: 20px;
+}
+
+/* As explained about, I used margin-auto: top to push the footer to the bottom and to keep the content section an equal relative distance from the footer as the page is resized. However, because the content section is a flex container with flex-direction: column, all that is needed is to justify-content: center (this centers items on the main axis which is now vertical) and use a flex-grow of 1 (this causes each element to grow proportionally as the window is resized and has the same outcome as my use of auto margins...but pure flexbox. */
+.footer {
+  display: flex;
+  margin-top: auto;
+  background-color: #eeeeee;
+  padding: 20px;
+}
+
+/* instead of using auto margin to push the right links to the right side, the solution uses 'space-between'. When there are only two elements (as is the case here), space between will set the first at flex-start and the last at flex-end. If there were more than 3 elements, they would be spaced evenly from flex-start to flex-end. */
+.right-links {
+  margin-left: auto;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+}
+
+
